@@ -63,20 +63,24 @@ body {
     align-items: center;
     gap: 24px;
 }
-
 .profile-photo-wrapper {
     position: relative;
     width: 170px;
     height: 170px;
+    margin: 0 auto; /* Ensures absolute centering alignment */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .photo-glow {
     position: absolute;
-    inset: -4px;
+    inset: -6px;
     background: linear-gradient(135deg, var(--accent-glow), var(--accent-secondary));
     border-radius: 50%;
-    filter: blur(10px);
-    opacity: 0.7;
+    filter: blur(12px);
+    opacity: 0.8;
+    z-index: 1;
 }
 
 .profile-photo-wrapper img {
@@ -84,8 +88,11 @@ body {
     width: 170px;
     height: 170px;
     border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid rgba(255, 255, 255, 0.2);
+    object-fit: cover; /* Prevents image distortion */
+    object-position: center top; /* Focuses nicely on the face */
+    border: 3px solid rgba(255, 255, 255, 0.25);
+    z-index: 2;
+    background-color: var(--bg-deep); /* Fallback background while loading */
 }
 
 .badge {
